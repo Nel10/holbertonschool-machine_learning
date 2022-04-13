@@ -25,6 +25,7 @@ def cat_matrices2D(mat1, mat2, axis=0):
     if axis == 0:
         new_matrix = mat1_cpy + mat2_cpy
         return new_matrix
-    for i in range(len(mat2_cpy)):
-        mat1_cpy[i] = mat1_cpy[i] + mat2_cpy[i]
-    return mat1_cpy
+    else:
+        for i in range(len(mat2_cpy)):
+            mat1_cpy[i] = mat1_cpy[i] + mat2_cpy[i]
+        return mat1_cpy
