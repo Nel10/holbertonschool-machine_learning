@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-""""""
+"""Function for concatenate matrices2D"""
 
 
 def mydeepcopy(L):
-    """"""
+    """Function for deep copy"""
     if isinstance(L, list):
         ret = []
         for i in L:
@@ -17,7 +17,7 @@ def mydeepcopy(L):
 
 
 def cat_matrices2D(mat1, mat2, axis=0):
-    """"""
+    """concatenate matrices2D"""
     new_matrix = []
     mat1_cpy = mydeepcopy(mat1)
     mat2_cpy = mydeepcopy(mat2)
