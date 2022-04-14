@@ -13,4 +13,6 @@ def mat_mul(mat1, mat2):
                 sum += mat1[i][k] * mat2[k][j]
             row.append(sum)
         new_matrix.append(row)
+    if len(mat1[0]) != len(mat2):
+        return None
     return new_matrix
