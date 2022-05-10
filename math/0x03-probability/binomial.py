@@ -38,17 +38,17 @@ class Binomial():
             self.n = round(mean / p)
             self.p = mean / self.n
 
-        def pmf(self, k):
-            """Return the value PMF"""
-            try:
-                if type(k) is not int:
-                    k = int(k)
-            except Exception:
-                return 0
+    def pmf(self, k):
+        """Return the value PMF"""
+        try:
+            if type(k) is not int:
+                k = int(k)
+        except Exception:
+            return 0
 
-            com = factorial(self.n) / (factorial(k) * factorial(self.n - k))
-            PMF = com * (self.p ** k) * ((1 - self.p) ** (self.n - k))
-            return PMF
+        com = factorial(self.n) / (factorial(k) * factorial(self.n - k))
+        PMF = com * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+        return PMF
 
 
 def factorial(n):
