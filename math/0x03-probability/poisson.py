@@ -28,8 +28,8 @@ class Poisson():
             self.k = int(k)
         if k < 0:
             return 0
-        k = e ** (-self.lambtha) * self.lambtha ** (k) / factorial(k)
-        return k
+        PMF = e ** (-self.lambtha) * self.lambtha ** (k) / factorial(k)
+        return PMF
 
 
 def factorial(n):
