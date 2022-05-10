@@ -26,4 +26,4 @@ class Normal():
             sumat = 0
             for x in data:
                 sumat += (x - self.mean) ** 2
-            self.sttdev = (1 / len(data) * sumat) ** 0.5
+            self.sttdev = (1 / (len(data)) * sumat) ** 0.5
