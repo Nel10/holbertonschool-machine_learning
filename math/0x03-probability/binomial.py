@@ -45,7 +45,8 @@ class Binomial():
                 k = int(k)
         except Exception:
             return 0
-
+        if k < 0:
+            return 0
         com = factorial(self.n) / (factorial(k) * factorial(self.n - k))
         PMF = com * (self.p ** k) * ((1 - self.p) ** (self.n - k))
         return PMF
