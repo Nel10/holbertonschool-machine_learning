@@ -53,4 +53,4 @@ class Normal():
     def erf(self, x):
         """Return the error function (erf)"""
         sumat = x - (x**3) / 3 + (x**5) / 10 + (x**7) / 42 + (x**9) / 216
-        return (2 / pi ** 0.5) * sumat
+        return (2 / (pi ** (0.5))) * sumat
