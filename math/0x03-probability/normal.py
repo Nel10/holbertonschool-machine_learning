@@ -22,7 +22,7 @@ class Normal():
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
 
-            mean = sum(data) / len(data)
+            self.mean = sum(data) / len(data)
             sumat = 0
             for x in data:
                 sumat += (x - self.mean) ** 2
