@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Create a class Normal"""
+pi = 3.1415926536
+e = 2.7182818285
 
 
 class Normal():
@@ -36,3 +38,9 @@ class Normal():
         """Calculates the x-value of a given z-score"""
         x = self.stddev * z + self.mean
         return x
+
+    def pdf(self, x):
+        """Calculates the value PDF"""
+        exp = e ** (- 1 / 2 * ((x - self.mean) / self.stddev) ** 2)
+        PDF = (1 / (self.stddev * (2 * pi) ** 0.5)) * exp
+        return PDF
