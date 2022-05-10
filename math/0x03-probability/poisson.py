@@ -24,8 +24,9 @@ class Poisson():
 
     def pmf(self, k):
         """Function for calculate value PMF"""
-        if type(k) is not int:
-            self.k = int(k)
+        try:
+            k = int(k)
+        except Exception:
             return 0
         if k < 0:
             return 0
