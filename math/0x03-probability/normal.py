@@ -12,10 +12,10 @@ class Normal():
         stddev is the standard deviation
         """
         if data is None:
-            if stddev <= 0:
-                raise ValueError("stddev must be a positive value")
             self.stddev = float(stddev)
             self.mean = float(mean)
+            if stddev <= 0:
+                raise ValueError("stddev must be a positive value")
         else:
             if type(data) is not list:
                 raise TypeError("data must be a list")
