@@ -37,3 +37,23 @@ class Binomial():
             p = 1 - (varianza / mean)
             self.n = round(mean / p)
             self.p = mean / self.n
+
+        def pmf(self, k):
+            """Return the value PMF"""
+            if type(k) is not int:
+                self.k = int(k)
+            if k < 0:
+                return 0
+
+            com = factorial(self.n) / (factorial(k) * factorial(self.n - k))
+            PMF = com * (p) ** k * (1 - p) ** n - k
+            return PMF
+
+
+def factorial(n):
+    """Return factorial number"""
+    # n! = 1 * 2 * 3 .. n
+    num = 1
+    for i in range(1, n + 1):
+        num *= i
+    return num
