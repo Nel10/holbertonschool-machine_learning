@@ -40,13 +40,14 @@ class Binomial():
 
         def pmf(self, k):
             """Return the value PMF"""
-            if type(k) is not int:
-                self.k = int(k)
-            if k < 0:
+            try:
+                if type(k) is not int:
+                    k = int(k)
+            except Exception:
                 return 0
 
             com = factorial(self.n) / (factorial(k) * factorial(self.n - k))
-            PMF = com * (p) ** k * (1 - p) ** n - k
+            PMF = com * (self.p) ** k * (1 - self.p) ** (self.n - k)
             return PMF
 
 
