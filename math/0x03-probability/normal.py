@@ -44,3 +44,14 @@ class Normal():
         exp = e ** (- 1 / 2 * ((x - self.mean) / self.stddev) ** 2)
         PDF = (1 / (self.stddev * (2 * pi) ** 0.5)) * exp
         return PDF
+
+    def cdf(self, x):
+        """Calculates the value CDF"""
+        CDF = 1 / 2 * 1 + self.erf(x - self.mean / self.stddev * (2 ** 0.5))
+        return CDF
+
+    def erf(self, x):
+        """Return the error function (erf)"""
+        return ((2 / pi ** 0.5) *
+                (x - ((x ** 3) / 3) + ((x ** 5) / 10) + ((x ** 7) / 42) +
+                ((x ** 9) / 216)))
