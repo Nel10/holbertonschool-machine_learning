@@ -24,8 +24,15 @@ class Exponential():
             self.lambtha = 1 / float(mean)
 
     def pdf(self, x):
-        """Calculate a value pdf"""
+        """Calculate a value PDF"""
         if x < 0:
             return 0
         PDF = self.lambtha * e ** (-self.lambtha * x)
         return PDF
+
+    def cdf(self, x):
+        """Calculate a value CDF"""
+        if x < 0:
+            return 0
+        CDF = 1 - e ** (-self.lambtha * x)
+        return CDF
