@@ -42,7 +42,7 @@ class Poisson():
         if k < 0:
             return 0
         sum = 0
-        for i in range(1, k + 1):
+        for i in range(k + 1):
             sum += self.pmf(i)
         return sum
 
