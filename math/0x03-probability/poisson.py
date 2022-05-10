@@ -33,6 +33,13 @@ class Poisson():
         PMF = (e ** (-self.lambtha) * self.lambtha ** (k)) / factorial(k)
         return PMF
 
+    def cdf(self, k):
+        """Function for calculate value CDF"""
+        sum = 0
+        for i in range(k + 1):
+            sum += self.pmf(k)
+        return sum
+
 
 def factorial(n):
     """Function for find factorial"""
