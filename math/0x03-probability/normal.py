@@ -21,9 +21,8 @@ class Normal():
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-
-            self.mean = sum(data) / len(data)
+            self.mean = float(sum(data) / len(data))
             sumat = 0
             for x in data:
                 sumat += (x - self.mean) ** 2
-            self.sttdev = (1 / (len(data)) * sumat) ** 0.5
+            self.sttdev = float((1 / len(data) * sumat) ** 0.5)
