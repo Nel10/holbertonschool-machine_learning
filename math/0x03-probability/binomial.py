@@ -19,7 +19,7 @@ class Binomial():
             self.n = int(n)
             self.p = float(p)
         else:
-            if type(data) is None:
+            if type(data) is not list:
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
