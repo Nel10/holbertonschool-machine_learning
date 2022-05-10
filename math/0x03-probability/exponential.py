@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Create a class Exponential"""
+e = 2.7182818285
 
 
 class Exponential():
@@ -21,3 +22,10 @@ class Exponential():
                 raise ValueError("data must contain multiple values")
             mean = sum(data) / len(data)
             self.lambtha = 1 / float(mean)
+
+    def pdf(self, x):
+        """Calculate a value pdf"""
+        if x < 0:
+            return 0
+        PDF = self.lambtha * e ** (-self.lambtha * x)
+        return PDF
