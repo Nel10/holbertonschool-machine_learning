@@ -20,4 +20,4 @@ class Exponential():
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             mean = sum(data) / len(data)
-            self.lambtha = 1 / mean
+            self.lambtha = float(1 / mean)
