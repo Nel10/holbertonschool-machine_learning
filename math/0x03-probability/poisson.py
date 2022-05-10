@@ -26,6 +26,7 @@ class Poisson():
         """Function for calculate value PMF"""
         if type(k) is not int:
             self.k = int(k)
+            return 0
         if k < 0:
             return 0
         PMF = (e ** (-self.lambtha) * self.lambtha ** (k)) / factorial(k)
