@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Create a class Poisson"""
+e = 2.7182818285
 
 
 class Poisson():
@@ -20,3 +21,22 @@ class Poisson():
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data)/len(data))
+
+    def pmf(self, k):
+        """Function for calculate value PMF"""
+        if type(k) is not int:
+            self.k = int(k)
+        if k < 0:
+            return 0
+        k = e ** (-self.lambtha) * self.lambtha ** (k) / factorial(k)
+        return k
+
+
+def factorial(n):
+    """Function for find factorial"""
+    # 5! = 1 * 2 * 3 * 4 * 5
+    # n! = 1 * 2 * 3 .. n
+    num = 1
+    for i in range(1, n):
+        num *= i
+    return num
