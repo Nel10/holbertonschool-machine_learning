@@ -37,7 +37,7 @@ class Poisson():
         """Function for calculate value CDF"""
         sum = 0
         for i in range(k + 1):
-            sum += self.pmf(k)
+            sum += self.pmf(i)
         return sum
 
 
