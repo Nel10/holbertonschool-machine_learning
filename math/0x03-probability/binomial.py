@@ -51,6 +51,18 @@ class Binomial():
         PMF = com * (self.p ** k) * ((1 - self.p) ** (self.n - k))
         return PMF
 
+    def cdf(self, k):
+        """calculate the value CDF"""
+        try:
+            if type(k) is not int:
+                k = int(k)
+        except Exception:
+            return 0
+        sumat = 0
+        for i in range(1, k + 1):
+            sumat += self.pmf(i)
+        return sumat
+
 
 def factorial(n):
     """Return factorial number"""
