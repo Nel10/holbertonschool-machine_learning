@@ -59,7 +59,7 @@ class Binomial():
         except Exception:
             return 0
         sumat = 0
-        for i in range(1, k + 1):
+        for i in range(k + 1):
             sumat += self.pmf(i)
         return sumat
 
