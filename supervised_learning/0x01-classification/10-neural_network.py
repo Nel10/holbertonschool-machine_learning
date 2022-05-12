@@ -37,32 +37,32 @@ class NeuralNetwork():
 
     @property
     def W1(self):
-        """Return W1"""
+        """Return the value W1"""
         return self.__W1
 
     @property
     def b1(self):
-        """Return b1"""
+        """Return the value b1"""
         return self.__b1
 
     @property
     def A1(self):
-        """Return A1"""
+        """Return the value A1"""
         return self.__A1
 
     @property
     def W2(self):
-        """Return W2"""
+        """Return the value W2"""
         return self.__W2
 
     @property
     def b2(self):
-        """Return b2"""
+        """Return the value b2"""
         return self.__b2
 
     @property
     def A2(self):
-        """Return A2"""
+        """Return the value A2"""
         return self.__A2
 
     def forward_prop(self, X):
