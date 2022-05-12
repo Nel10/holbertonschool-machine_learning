@@ -67,11 +67,11 @@ class NeuralNetwork():
 
     def forward_prop(self, X):
         """Calculates the forward propagation of the neural network"""
-        #  first calculate the ponderation
+        """first calculate the ponderation"""
         z = np.dot(self.__W1, X) + self.__b1
-        #  calculate the prediction for hidden layer
+        """calculate the prediction for hidden layer"""
         self.__A1 = sigmoid(z)
-        #  output hidden layer = input for the output neuron
+        """output hidden layer = input for the output neuron"""
         z2 = np.dot(self.__W2, self.__A1) + self.__b2
         self.__A2 = sigmoid(z2)
         return self.__A1, self.__A2
