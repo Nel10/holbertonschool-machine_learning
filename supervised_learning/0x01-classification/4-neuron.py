@@ -54,7 +54,7 @@ class Neuron():
         return cross_entr / m
 
     def evaluate(self, X, Y):
-        """"""
+        """ the neuron’s prediction and the cost of the network"""
         prediction = self.forward_prop(X)
         total_cost = self.cost(Y, prediction)
         #  np.rint: Round elements of the array to the nearest integer.
