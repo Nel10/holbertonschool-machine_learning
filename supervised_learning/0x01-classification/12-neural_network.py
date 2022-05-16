@@ -84,10 +84,10 @@ class NeuralNetwork():
 
     def evaluate(self, X, Y):
         """Evaluates the neural network’s predictions"""
-        prediction = self.forward_prop(X)
-        total_cost = self.cost(Y, prediction)
-        prediction = np.rint(prediction).astype(int)
-        return prediction, total_cost
+        prediction1, prediction2 = self.forward_prop(X)
+        total_cost = self.cost(Y, prediction2)
+        prediction2 = np.rint(prediction2).astype(int)
+        return prediction2, total_cost
 
 
 def sigmoid(z):
