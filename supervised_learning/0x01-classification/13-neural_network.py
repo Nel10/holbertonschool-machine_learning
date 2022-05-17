@@ -93,7 +93,7 @@ class NeuralNetwork():
         """Calculates one pass of gradient
         descent on the neural network"""
         """m is the number of examples"""
-        m = Y.shape[1]
+        m = len(Y[0])
         der_cos_z_L = A2 - Y
         """ der_cos_w = der_cos_z * der_z_w"""
         der_cos_w_L = np.dot(A1, der_cos_z_L.T) / m
