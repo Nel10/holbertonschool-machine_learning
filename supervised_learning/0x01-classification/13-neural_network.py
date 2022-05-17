@@ -101,12 +101,12 @@ class NeuralNetwork():
         self.__W2 = self.__W2 - (alpha * der_cos_w_L.T)
         """Axis = 0 sum by columns, axis = 1, sum by rows"""
         der_cos_b_L = np.sum(der_cos_z_L, axis=1, keepdims=True) / m
-        self.__b2 = self.__b2 - alpha * der_cos_b_L
+        self.__b2 = self.__b2 - (alpha * der_cos_b_L)
         error_L_1 = np.dot(self.__W2.T, der_cos_z_L) * deriv_sigmoid(A1)
         der_cos_w_L_1 = np.dot(X, error_L_1.T) / m
         self.__W1 = self.__W1 - (alpha * der_cos_w_L_1.T)
         der_cos_b_L_1 = np.sum(error_L_1,  axis=1, keepdims=True) / m
-        self.__b1 = self.__b1 - alpha * der_cos_b_L_1
+        self.__b1 = self.__b1 - (alpha * der_cos_b_L_1)
 
 
 def deriv_sigmoid(A):
