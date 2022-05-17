@@ -109,7 +109,6 @@ class NeuralNetwork():
         self.__W2 = self.__W2 - (alpha * der_cos_w_L.T)
 
 
-
 def deriv_sigmoid(A):
     """function return deriv_sigmoid"""
     return A * (1 - A)
