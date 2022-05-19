@@ -23,18 +23,18 @@ class DeepNeuralNetwork():
         negative = list(filter(lambda X: X <= 0, layers))
         if len(negative) > 0:
             raise TypeError("layers must be a list of positive integers")
-        self.L = len(layers)
-        self.cache = {}
-        self.weights = {}
+        self.__L = len(layers)
+        self.__cache = {}
+        self.__weights = {}
         for i in range(len(layers)):
             if i == 0:
                 factor1 = np.random.randn(layers[i], nx)
-                self.weights['W{}'.format(i + 1)] = factor1 * np.sqrt(2/nx)
+                self.__weights['W{}'.format(i + 1)] = factor1 * np.sqrt(2/nx)
             else:
                 factor1 = np.random.randn(layers[i], layers[i - 1])
                 factor2 = np.sqrt(2/layers[i - 1])
-                self.weights['W{}'.format(i + 1)] = factor1 * factor2
-            self.weights['b{}'.format(i + 1)] = np.zeros((layers[i], 1))
+                self.__weights['W{}'.format(i + 1)] = factor1 * factor2
+            self.__weights['b{}'.format(i + 1)] = np.zeros((layers[i], 1))
 
     @property
     def L(self):
