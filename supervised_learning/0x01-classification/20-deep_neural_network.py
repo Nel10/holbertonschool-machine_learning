@@ -73,6 +73,7 @@ class DeepNeuralNetwork():
         """Evaluates the neural network’s predictions"""
         prediction, caches = forward_prop(X)
         costs = cost(Y, prediction)
+        prediction = np.rint(prediction).astype(int)
         return prediction, costs
 
 
