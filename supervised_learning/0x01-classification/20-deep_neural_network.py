@@ -71,8 +71,8 @@ class DeepNeuralNetwork():
 
     def evaluate(self, X, Y):
         """Evaluates the neural network’s predictions"""
-        prediction, caches = forward_prop(X)
-        costs = cost(Y, prediction)
+        prediction, caches = self.forward_prop(X)
+        costs = self.cost(Y, prediction)
         prediction = np.rint(prediction).astype(int)
         return prediction, costs
 
