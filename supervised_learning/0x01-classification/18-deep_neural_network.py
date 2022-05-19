@@ -60,7 +60,7 @@ class DeepNeuralNetwork():
             predictions = sigmoid(z)
             X = predictions
             self.__cache['A{}'.format(i+1)] = predictions
-        return predictions, self.__cache
+        return self.__cache['A{}'.format(self.__L - 1)], self.__cache
 
 
 def sigmoid(z):
