@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""""
+"""Create Class DeepNeuralNetwork"""
 import numpy as np
 
 
