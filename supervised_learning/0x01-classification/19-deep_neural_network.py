@@ -65,8 +65,9 @@ class DeepNeuralNetwork():
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression"""
         m = Y.shape[1]
-        costs = Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A) / m
-        return costs
+        costs = Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A)
+        total_cost = -costs.sum() / m
+        return total_cost
 
 
 def sigmoid(z):
