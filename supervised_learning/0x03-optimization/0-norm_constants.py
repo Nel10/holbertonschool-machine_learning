@@ -11,4 +11,4 @@ def normalization_constants(X):
     nx is the number of features
     Returns: the mean and standard deviation of each feature
     """
-    return np.mean(X, axios=0), np.std(X, axios=0)
+    return np.mean(X, axis=0), np.std(X, axis=0)
