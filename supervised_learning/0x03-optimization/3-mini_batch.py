@@ -1,4 +1,4 @@
-#!/usr/bin/env pythhon3
+#!/usr/bin/env python3
 """Module contains train_mini_batch() function"""
 import tensorflow.compat.v1 as tf
 
