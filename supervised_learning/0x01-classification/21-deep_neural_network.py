@@ -88,9 +88,9 @@ class DeepNeuralNetwork():
             dS = deriv_sigmoid(self.__cache['A{}'.format(i - 1)])
             error_L_1 = np.dot(self.__weights['W{}'.format(i)].T, error_L) * dS
             error_L = error_L_1
-            weights = self.__weights['W{}'.format(i)]
+            weights = self.__weights['b{}'.format(i)]
             factor1 = alpha * der_cost_w
-            bias = self.__weights['b{}'.format(i)]
+            bias = self.__weights['W{}'.format(i)]
             factor2 = (alpha * der_cost_b.T)
 
             self.__weights['W{}'.format(i)] = weights - factor1
