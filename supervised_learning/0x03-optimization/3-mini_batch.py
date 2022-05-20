@@ -3,11 +3,11 @@
 import tensorflow.compat.v1 as tf
 
 
-def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
-                     epochs=5, load_path="/tmp/model.ckpt",
+def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
+                     batch_size=32, epochs=5, load_path="/tmp/model.ckpt",
                      save_path="/tmp/model.ckpt"):
     """
-    Trains a loaded neural network model using
+       Trains a loaded neural network model using
        mini-batch gradient descent
        Args:
          X_train: numpy.ndarray - (m, 784) containing training data
@@ -19,7 +19,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
          load_path: path from which to load the model
          save_path: path to where the model should be saved after training
        Returns:
-         The path where the model was saved
+         The path where the model was saved.
     """
     with tf.Session() as sess:
         loader = tf.train.import_meta_graph(load_path + '.meta')
