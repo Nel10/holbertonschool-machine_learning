@@ -1,5 +1,6 @@
 #!/usr/bin/env pythhon3
 """Module contains train_mini_batch() function"""
+import tensorflow.compat.v1 as tf
 
 
 def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
