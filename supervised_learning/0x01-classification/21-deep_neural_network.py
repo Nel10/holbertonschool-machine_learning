@@ -79,18 +79,19 @@ class DeepNeuralNetwork():
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
         m = Y.shape[1]
+        self.__cache = cache
         for i in range(self.__L, 1, - 1):
             if i == self.__L:
                 error_L = cache['A{}'.format(i)] - Y
-            der_cost_w = error_L * cache['A{}'.format(i - 1)] / m
+            der_cost_w = np.dot(cache['A{}'.format(i - 1)], error_L.T) / m
             der_cost_b = np.sum(error_L, axis=1, keepdims=True) / m
-            d_S = deriv_sigmoid(self.cache['A{}'.format(i - 1)])
-            error_L_1 = error_L * self.__weights['W{}'.format(i)] * d_S
+            d_S = deriv_sigmoid(self.__cache['A{}'.format(i - 1)])
+            error_L_1 = np.dot(self.__weights['W{}'.format(i)].T, error_L) * d_S
             error_L = error_L_1
             weights = self.__weights['W{}'.format(i)]
             factor1 = alpha * der_cost_w
             bias = self.__weights['b{}'.format(i)]
-            factor2 = alpha * der_cost_b
+            factor2 = alpha * der_cost_b.T
 
             self.__weights['W{}'.format(i)] = weights - factor1
             self.__weights['b{}'.format(i)] = bias - factor2
