@@ -3,7 +3,7 @@
    Module contains create_RMSProp_op(loss, alpha, beta2, epsilon)
    function.
 """
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def create_RMSProp_op(loss, alpha, beta2, epsilon):
