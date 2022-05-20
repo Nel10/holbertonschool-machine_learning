@@ -80,7 +80,7 @@ class DeepNeuralNetwork():
         """Calculates one pass of gradient descent on the neural network"""
         m = Y.shape[1]
         self.__cache = cache
-        for i in range(self.__L, 1, - 1):
+        for i in range(self.__L, 0, - 1):
             if i == self.__L:
                 error_L = cache['A{}'.format(i)] - Y
             der_cost_w = np.dot(cache['A{}'.format(i - 1)], error_L.T) / m
