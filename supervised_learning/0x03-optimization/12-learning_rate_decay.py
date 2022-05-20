@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Learning rate decay 
+Learning rate decay
 """
 import tensorflow.compat.v1 as tf
 
