@@ -82,7 +82,7 @@ class DeepNeuralNetwork():
         self.__cache = cache
         for i in range(self.__L, 0, - 1):
             if i == self.__L:
-                error_L = cache['A{}'.format(i)] - Y
+                error_L = self.__cache['A{}'.format(i)] - Y
             der_cost_w = np.dot(cache['A{}'.format(i - 1)], error_L.T) / m
             der_cost_b = np.sum(error_L, axis=1, keepdims=True) / m
             dS = deriv_sigmoid(self.__cache['A{}'.format(i - 1)])
@@ -91,7 +91,7 @@ class DeepNeuralNetwork():
             weights = self.__weights['W{}'.format(i)]
             factor1 = alpha * der_cost_w
             bias = self.__weights['b{}'.format(i)]
-            factor2 = alpha * der_cost_b.T
+            factor2 = (alpha * der_cost_b.T)
 
             self.__weights['W{}'.format(i)] = weights - factor1
             self.__weights['b{}'.format(i)] = bias - factor2
