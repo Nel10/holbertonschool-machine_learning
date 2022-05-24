@@ -17,5 +17,5 @@ def precision(confusion):
     """
     precision = np.zeros((confusion.shape[0]))
     for x in range(confusion.shape[0]):
-        precision[x] = confusion[x][x]/np.sum(confusion[:,x])
+        precision[x] = confusion[x][x]/np.sum(confusion[:, x])
     return precision
