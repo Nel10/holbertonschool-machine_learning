@@ -11,7 +11,7 @@ forward_prop = __import__('2-forward_prop').forward_prop
 def train(X_train, Y_train, X_valid, Y_valid, layer_sizes,
           activations, alpha, iterations, save_path="/tmp/model.ckpt"):
     """Returns: the path where the model was saved"""
-    create_placeholders(X_train.shape[1], Y_train.shape[1])
+    x, y = create_placeholders(X_train.shape[1], Y_train.shape[1])
     tf.add_to_collection(name='x', value=x)
     tf.add_to_collection(name='y', value=y)
     prediction_total = forward_prop(x, layer_sizes, activations)
