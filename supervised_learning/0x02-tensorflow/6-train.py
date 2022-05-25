@@ -41,6 +41,6 @@ def train(X_train, Y_train, X_valid, Y_valid, layer_sizes,
                 print("\tValidation Cost: {}".format(vloss))
                 print("\tValidation Accuracy: {}".format(vaccuracy))
             if i < iterations:
-                session.run(train_op, feed_dict={x: X_train, y: Y_train})
+                session.run(train, feed_dict={x: X_train, y: Y_train})
         saver = tf.train.Saver()
         return saver.save(session, save_path)
