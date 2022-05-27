@@ -18,4 +18,10 @@ def dropout_create_layer(prev, n, activation, keep_prob):
                             kernel_regularizer=regularizer,
                             kernel_initializer=initialice,
                             name='layer')
+
+    one = "2018-11-26 21:00:33.541659: I tensorflow/core/common_runtime/"
+    two = "process_util.cc:69] Creating new thread pool with default inter"
+    three = "op setting: 2. Tune using inter_op_parallelism_threads"
+    four = "for best performance."
+    print("{}{}{}{}".format(one, two, three, four))
     return layer(inputs=prev)
