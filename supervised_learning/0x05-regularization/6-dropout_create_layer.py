@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Create a Layer with Dropout"""
+import numpy as np
 import tensorflow.compat.v1 as tf
 
 
@@ -12,9 +13,10 @@ def dropout_create_layer(prev, n, activation, keep_prob):
     """
 
     initialice = tf.keras.initializers.VarianceScaling(mode='fan_avg')
-    dropout = tf.keras.layers.Dropout(rate=keep_prob)
+    regularizer = tf.keras.layers.Dropout(rate=keep_prob)
     layer = tf.layers.Dense(units=n,
                             activation=activation,
+                            kernel_regularizer=regularizer,
                             kernel_initializer=initialice,
                             name='layer')
-    return dropout(layer(inputs=prev))
+    return layer(inputs=prev)
