@@ -11,7 +11,7 @@ def save_config(network, filename):
     save model to JSON file
     """
     model = network.to_json()
-    with open('filename', 'w') as f:
+    with open(filename, 'w') as f:
         f.write(model)
     return None
 
@@ -20,6 +20,6 @@ def load_config(filename):
     """
     Load from JSON file
     """
-    with open('filename', 'r') as f:
+    with open(filename) as f:
         model = f.read()
     return K.model_from_json(model)
