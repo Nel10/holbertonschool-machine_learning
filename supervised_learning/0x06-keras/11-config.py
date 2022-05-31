@@ -22,4 +22,4 @@ def load_config(filename):
     """
     with open(filename) as f:
         model = f.read()
-    return K.model_from_json(model)
+    return K.models.model_from_json(model)
