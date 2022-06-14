@@ -13,7 +13,7 @@ def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='max'):
             h_prev: is the height of the previous layer
             w_prev: is the width of the previous layer
             c_prev: is the number of channels in the previous layer
-        kernel_shape: (kh, kw) containing the size of the kernel for the pooling
+        kernel_shape: (kh, kw) containing the size of the kernel for the pool
             kh: is the kernel height
             kw: is the kernel width
         stride: is a tuple of (sh, sw) containing the strides for the pooling
