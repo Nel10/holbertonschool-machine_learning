@@ -12,8 +12,8 @@ def projection_block(A_prev, filters, s=2):
     initializer = K.initializers.HeNormal()
     F11, F3, F12 = filters
     conv1 = K.layers.Conv2D(filters=F11,
-                            kernel_size=(1, 1),
                             strides=s,
+                            kernel_size=(1, 1),
                             padding='same',
                             kernel_initializer=initializer)(A_prev)
     bach_norm1 = K.layers.BatchNormalization(axis=3)(conv1)
@@ -31,8 +31,8 @@ def projection_block(A_prev, filters, s=2):
     bach_norm3 = K.layers.BatchNormalization(axis=3)(conv3)
 
     conv4 = K.layers.Conv2D(filters=F12,
-                            kernel_size=(1, 1),
                             strides=s,
+                            kernel_size=(1, 1),
                             padding='same',
                             kernel_initializer=initializer,
                             activation='relu')(A_prev)
