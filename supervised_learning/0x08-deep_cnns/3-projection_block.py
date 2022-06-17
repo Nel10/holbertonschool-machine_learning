@@ -34,8 +34,7 @@ def projection_block(A_prev, filters, s=2):
                             strides=s,
                             kernel_size=(1, 1),
                             padding='same',
-                            kernel_initializer=initializer,
-                            activation='relu')(A_prev)
+                            kernel_initializer=initializer)(A_prev)
     bach_norm4 = K.layers.BatchNormalization(axis=3)(conv4)
     add_layer = K.layers.Add()([bach_norm3, bach_norm4])
     activation3 = K.layers.Activation('relu')(add_layer)
