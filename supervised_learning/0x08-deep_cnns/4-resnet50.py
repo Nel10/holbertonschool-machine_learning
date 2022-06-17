@@ -25,7 +25,7 @@ def resnet50():
                                   padding='same')(activation1)
     # x3
     filters = (64, 64, 256)
-    projection1 = projection_block(pool1, filters, 1)
+    projection1 = projection_block(pool1, filters)
     identity1 = identity_block(projection1, filters)
     identity2 = identity_block(identity1, filters)
     # x4
