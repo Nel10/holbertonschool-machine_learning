@@ -8,8 +8,8 @@ inception_block = __import__('0-inception_block').inception_block
 
 def inception_network():
     """
-    builds the inception network as described inputs
-    Going Deeper with Convolutions (2014)
+    builds the inception network as described
+    in Going Deeper with Convolutions (2014)
     """
     initializer = K.initializers.HeNormal()
     input_layer = K.Input(shape=(224, 224, 3))
@@ -22,12 +22,18 @@ def inception_network():
     pool1 = K.layers.MaxPooling2D(pool_size=(3, 3),
                                   strides=(2, 2),
                                   padding='same')(conv1)
+    conv2p = K.layers.Conv2D(filters=64,
+                             kernel_size=(1, 1),
+                             strides=(1, 1),
+                             padding='valid',
+                             kernel_initializer=initializer,
+                             activation='relu')(pool1)
     conv2 = K.layers.Conv2D(filters=192,
                             kernel_size=(3, 3),
                             strides=(1, 1),
-                            padding='valid',
+                            padding='same',
                             kernel_initializer=initializer,
-                            activation='relu')(pool1)
+                            activation='relu')(conv2p)
     pool2 = K.layers.MaxPooling2D(pool_size=(3, 3),
                                   strides=(2, 2),
                                   padding='same')(conv2)
@@ -40,7 +46,7 @@ def inception_network():
                                   padding='same')(inception2)
     filters = (192, 96, 208, 16, 48, 64)
     inception3 = inception_block(pool3, filters)
-    filters = (160, 112, 221, 24, 64, 64)
+    filters = (160, 112, 224, 24, 64, 64)
     inception4 = inception_block(inception3, filters)
     filters = (128, 128, 256, 24, 64, 64)
     inception5 = inception_block(inception4, filters)
@@ -62,8 +68,8 @@ def inception_network():
     fc = K.layers.Dense(units=(1000), activation='softmax',
                         kernel_initializer=initializer)(dropout)
 
-    model = K.models.Model(inputs=input_layer, outputs=fc)
-    # model.compile(optimizer=K.optimizers.Adam(),
-    #               loss='categorical_crossentropy',
-    #               metrics=['accuracy'])
+    model = K.Model(inputs=input_layer, outputs=fc)
+    model.compile(optimizer=K.optimizers.Adam(),
+                  loss='categorical_crossentropy',
+                  metrics=['accuracy'])
     return model
