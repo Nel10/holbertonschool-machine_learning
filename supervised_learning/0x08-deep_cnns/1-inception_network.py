@@ -62,7 +62,7 @@ def inception_network():
     fc = K.layers.Dense(units=(1000), activation='softmax',
                         kernel_initializer=initializer)(dropout)
 
-    model = K.Model(inputs=input_layer, outputs=fc)
+    model = K.models.Model(inputs=input_layer, outputs=fc)
     model.compile(optimizer=K.optimizers.Adam(),
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
