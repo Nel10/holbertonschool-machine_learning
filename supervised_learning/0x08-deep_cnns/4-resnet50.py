@@ -3,8 +3,8 @@
 Resnet 50
 """
 import tensorflow.keras as K
-identity_block = __import__('2-identity_block').identity_block
-projection_block = __import__('3-projection_block').projection_block
+# identity_block = __import__('2-identity_block').identity_block
+# projection_block = __import__('3-projection_block').projection_block
 
 
 def resnet50():
@@ -18,22 +18,22 @@ def resnet50():
                             kernel_initializer=initializer,
                             strides=(2, 2),
                             padding='same')(input_layer)
-    batch1 = K.layers.BatchNormalization()(conv1)
+    batch1 = K.layers.BatchNormalization(axis=3)(conv1)
     activation1 = K.layers.Activation('relu')(batch1)
-    pool1 = K.layers.MaxPool2D(pool_size=(3, 3),
-                               strides=(2, 2),
-                               padding='same')(activation1)
+    pool1 = K.layers.MaxPooling2D(pool_size=(3, 3),
+                                  strides=(2, 2),
+                                  padding='same')(activation1)
     # x3
     filters = (64, 64, 256)
-    projection1 = projection_block(pool1, filters, 1)
+    projection1 = projection_block(pool1, filters)
     identity1 = identity_block(projection1, filters)
     identity2 = identity_block(identity1, filters)
     # x4
     filters = (128, 128, 512)
     projection2 = projection_block(identity2, filters)
-    identity3 = projection_block(projection2, filters)
-    identity4 = projection_block(identity3, filters)
-    identity5 = projection_block(identity4, filters)
+    identity3 = identity_block(projection2, filters)
+    identity4 = identity_block(identity3, filters)
+    identity5 = identity_block(identity4, filters)
     # x6
     filters = (256, 256, 1024)
     projection3 = projection_block(identity5, filters)
