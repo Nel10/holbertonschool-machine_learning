@@ -21,9 +21,9 @@ def determinant(matrix):
         return 1
 
     if height != width:
-        raise ValueError("matrix must be a list of lists")
+        raise ValueError("matrix must be a square matrix")
     if not all([len(matrix[i]) == width for i in range(1, height)]):
-        raise ValueError("matrix must be a list of lists")
+        raise ValueError("matrix must be a square matrix")
 
     # Account for edge case [[num]] (1x1 matrix)
     if height == 1 and width == 1:
